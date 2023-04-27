@@ -6,6 +6,11 @@ class StudentController {
         const { id } = req.params
         res.status(200).send("This is my route of Students by Id")
     }
+    static getStudentByName(req, res) {
+        const { name } = req.params
+        res.status(200).send(`This is the student ${name}`)
+    }
+
     static createStudent(req, res) {
         res.status(201).send("You have created or registered a new Student")
     }

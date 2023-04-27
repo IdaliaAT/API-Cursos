@@ -5,11 +5,9 @@ import routes from "./routes/index.js"
 import dbcon from "./db/db.js"
 
 const port = process.env.API_PORT
-const app = express()
-    // Metodos de instancia
-    // Los metodos de clase los vas a utilizar en modelos
-
-//Los metodos son funciones que se crean en una clase, son las acciones de una clase o de un objeto. Ejm. perro, clase ladrar.
+const app = express() // Igualamos app a express
+    //Los metodos de clase los vas a utilizar en modelos
+    //Los metodos son funciones que se crean en una clase, son las acciones de una clase o de un objeto. Ejm. perro, clase ladrar.
 
 // Metodo use
 app.use(express.json()) // este es para interpretar informacion en json, asi te comunicas con el server.
@@ -20,6 +18,10 @@ app.use("/api", routes) // Aqui es la ruta donde vive el server y dentro de rout
 // Una callback es una funcion que se envia como argumento dentro de una funcion.
 
 // Aqui hacemos una promesa de conectarse a la base de datos. Y se levanta el servidor conectado con la base de datos.
+
+// Acceder a un metodo llamando a la instancia que es dbon y luego al metodo que es sync (u authenticate, etc.) 
+
+
 await dbcon.sync({ force: false }).then(() => {
     app.listen(port, () => {
         console.log("Servidor Ok")
