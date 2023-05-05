@@ -1,7 +1,8 @@
-// Import model : Aqui vamos a importar el modelo creado e importado en index.
+import { Subject } from "../../models/index.js"
 // Hay 2 metodos de clase:  instancia y clase.
 // SubjectController es el metodo de clase en este caso.
 class SubjectController {
+
     static getAllSubjects(req, res) {
         res.status(200).send("These are all of my subjects")
     }

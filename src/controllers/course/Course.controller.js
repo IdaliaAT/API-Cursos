@@ -1,10 +1,11 @@
 class CourseController {
+
     static getAllCourses(req, res) {
-        res.status(200).send("These are all of my Courses")
+        res.status(200).send("These are all of your Courses")
     }
     static getCourseById(req, res) {
         const { id } = req.params
-        res.status(200).send("This is my route of Course by id")
+        res.status(200).send("This is your route of Course by id")
     }
     static createCourse(req, res) {
         res.status(201).send("You have created a new Course")

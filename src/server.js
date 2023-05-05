@@ -10,7 +10,7 @@ const app = express() // Igualamos app a express
     //Los metodos son funciones que se crean en una clase, son las acciones de una clase o de un objeto. Ejm. perro, clase ladrar.
 
 // Metodo use
-app.use(express.json()) // este es para interpretar informacion en json, asi te comunicas con el server.
+app.use(express.json()) // este es un middleware y es para interpretar informacion en json, asi te comunicas con el server.
 app.use(express.urlencoded({ extended: true })) // este es para que entienda el request de un formalario, te lo decodifica y extiende a formato json o parsea a formato json.
 app.use(morgan("tiny"))
 app.use("/api", routes) // Aqui es la ruta donde vive el server y dentro de routes busca como se secciona las rutas o  vifurcaciones. 
