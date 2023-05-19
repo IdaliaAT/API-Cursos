@@ -3,8 +3,18 @@ import { Subject } from "../../models/index.js"
 // SubjectController es el metodo de clase en este caso.
 class SubjectController {
 
-    static getAllSubjects(req, res) {
-        res.status(200).send("These are all of my subjects")
+    static async getAllSubjects(req, res) {
+        try {
+            const subjects = await Subject.findAll({
+                attributes: ["id", "name"]
+            })
+            if (!subjects.length) throw { message: "There are no Subjects", codeStatus: 404 }
+            res.status(200).send({ success: true, message: "These are all of your Subjects", results: subjects })
+        } catch (err) {
+            const codeStatus = err.codeStatus || 500
+            const message = err.message || "Internal Server Error"
+            res.status(codeStatus).send({ success: false, message })
+        }
     }
     static getSubjectById(req, res) {
         const { id } = req.params
