@@ -7,6 +7,8 @@ import "dotenv/config"
 // new palabra reservada que se utiliza para instanciar objetos de clase.
 // Sequelize es la clase que contiene todos los metodos, ejm. authenticate. Las clases se inician con mayusculas.
 // A continuacion te traes lo que tienes en el .env y lo seteas a la const dbName
+// En base de datos los metodos son SELECT, CREATE, INSERT, UPDATE Y DELETE.
+
 
 const dbName = process.env.DB_NAME
 const dbUserName = process.env.DB_USERNAME

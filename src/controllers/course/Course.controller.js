@@ -8,6 +8,7 @@ class CourseController {
         res.status(200).send("This is your route of Course by id")
     }
     static createCourse(req, res) {
+        // hacer de tarea.
         res.status(201).send("You have created a new Course")
     }
     static updateCourse(req, res) {

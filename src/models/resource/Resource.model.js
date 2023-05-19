@@ -3,7 +3,7 @@ import dbcon from "../../db/db.js";
 
 class Resource extends Model {}
 Resource.init({
-    resourcetype: {
+    resourceType: {
         type: Dt.STRING(100),
         allowNull: false,
     },
@@ -13,8 +13,8 @@ Resource.init({
     url: {
         type: Dt.TEXT,
     },
-    idsubject: {
-        type: Dt.STRING(100),
+    idSubject: {
+        type: Dt.INTEGER, // La llave foranea (foreingKey) siempre tiene que tener el mismo tipo de dato que la llave primaria de tabla original.
     }
 }, {
     sequelize: dbcon,
