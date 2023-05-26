@@ -16,23 +16,13 @@ User.init({
         allowNull: false,
         unique: true,
     },
-    telephone: {
-        type: Dt.STRING(30),
-    },
-    institutionalid: {
-        type: Dt.STRING(100),
-    },
     password: {
         type: Dt.TEXT,
         allowNull: false,
     },
     salt: {
         type: Dt.STRING,
-    },
-    idRole: {
-        type: Dt.INTEGER
     }
-
 }, {
     sequelize: dbcon,
     modelName: "User",

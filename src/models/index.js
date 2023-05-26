@@ -7,14 +7,14 @@ import SubjectCourse from "./subjectCourse/SubjectCourse.model.js";
 import UserCourse from "./userCourse/UserCourse.model.js";
 
 // Lo siguiente es la asociacion de Usuario con Role.
-User.belongsTo(Role, {
-    foreignKey: "idRole",
-    onDelete: "RESTRICT",
-    onUpdate: "CASCADE",
-})
-Role.hasMany(User, {
-    foreignKey: "idRole",
-})
+// User.belongsTo(Role, {
+//     foreignKey: "idRole",
+//     onDelete: "RESTRICT",
+//     onUpdate: "CASCADE",
+// })
+// Role.hasMany(User, {
+//     foreignKey: "idRole",
+// })
 
 // Lo siguiente es la asociacion o relacion de Subject con Resource.
 Resource.belongsTo(Subject, {

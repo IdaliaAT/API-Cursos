@@ -1,14 +1,39 @@
+import { User } from "../../models/index.js"
+
 class UserController {
 
-    static getAllUsers(req, res) {
-        res.status(200).send("These are all of my Users")
+    static async getAllUsers(req, res) {
+        try {
+            const users = await User.findAll({
+                attributes: ["id", "firstName", "lastName"]
+            })
+            if (!users.length) throw { message: "There are no users to display", codeStatus: 404 }
+            res.status(200).send({ success: true, message: "These are all your users", results: users })
+        } catch (err) {
+            const codeStatus = err.codeStatus || 500
+            const message = err.message || "Internal Server Error"
+            res.status(codeStatus).send({ success: false, message })
+        }
     }
     static getUserById(req, res) {
         const { id } = req.params
         res.status(200).send("This is your route of User by id")
     }
-    static createUser(req, res) {
-        res.status(201).send("You have created a new User")
+    static async createUser(req, res) {
+        try {
+            const { firstName, lastName, email, password } = req.body
+            if (!firstName || !lastName || !email || !password) throw { message: "You must fill every field", codeStatus: 400 }
+
+            const user = await User.create({ firstName, lastName, email, password })
+            if (!user) throw { message: "Your new user has not been created", codeStatus: 500 }
+
+            res.status(201).send({ success: true, message: "Your new user has ben created" })
+
+        } catch (err) {
+            const codeStatus = err.codeStatus || 500
+            const message = err.message || "Internal Server Error"
+            res.status(codeStatus).send({ success: true, message })
+        }
     }
     static updateUser(req, res) {
         res.status(202).send("Your User has been updated")

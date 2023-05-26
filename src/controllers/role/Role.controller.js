@@ -34,7 +34,7 @@ class RoleController {
                 //2a. forma  const name = req.body.name
                 //           const description = req.body.description
                 //3a. forma  const { name, description } = req.body
-                // throw = captura elerror, el throw lanza y el catch atrapa jeje
+                // throw = captura el error, el throw lanza y el catch atrapa 
                 // Los valores trusy o falsy son los que por defondo tienen un valor true or false. El valor 0 no es necesariamente falso. O el undefine defondo vale false.  El null tambien tiene un valor false.
                 // Si name es false o falsy arrojame un error se representa asi:    if (!name) ... y lo demas.
                 //   if(default trusy) si quiere negar  es => if(!variable (falsy))

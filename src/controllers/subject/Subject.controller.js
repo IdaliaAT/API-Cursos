@@ -8,7 +8,12 @@ class SubjectController {
             const subjects = await Subject.findAll({
                 attributes: ["id", "name"]
             })
+
+            console.log("Este es mi console.log", Boolean(!subjects.length))
+            console.log(subjects.length)
+
             if (!subjects.length) throw { message: "There are no Subjects", codeStatus: 404 }
+                // Esta parte siempre va a entrar. if(!subjects.length)
             res.status(200).send({ success: true, message: "These are all of your Subjects", results: subjects })
         } catch (err) {
             const codeStatus = err.codeStatus || 500
@@ -23,11 +28,11 @@ class SubjectController {
     static async createSubject(req, res) {
         try {
             const { name, description } = req.body
-
             if (!name) throw { message: "Name cannot be empty", codeStatus: 400 }
-            const subject = await Subject.create({ name, description })
 
+            const subject = await Subject.create({ name, description })
             if (!subject) throw { message: "There is an unexpected error, subject is not created", codeStatus: 500 }
+
             res.status(201).send({ success: true, message: "Your Subject has been created successfully" })
 
         } catch (err) {

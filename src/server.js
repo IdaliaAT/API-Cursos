@@ -22,7 +22,7 @@ app.use("/api", routes) // Aqui es la ruta donde vive el server y dentro de rout
 // Acceder a un metodo llamando a la instancia que es dbon y luego al metodo que es sync (u authenticate, etc.) 
 
 
-await dbcon.sync({ force: true }).then(() => {
+await dbcon.sync({ force: false }).then(() => {
     app.listen(port, () => {
         console.log("Servidor Ok")
     })

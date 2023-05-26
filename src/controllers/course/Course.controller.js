@@ -12,11 +12,11 @@ class CourseController {
     static async createCourse(req, res) {
         try {
             const { name, schedule, initialDate, finalDate } = req.body
-
             if (!name) throw { message: "Name cannot be empty", codeStatus: 400 }
-            const course = await Course.create({ name, schedule, initialDate, finalDate })
 
+            const course = await Course.create({ name, schedule, initialDate, finalDate })
             if (!course) throw { message: "Something went wrong, your new course is not created", codeStatus: 500 }
+
             res.status(201).send({ success: true, message: "Your new Course has been created successfully" })
 
         } catch (err) {
